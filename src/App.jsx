@@ -1,14 +1,23 @@
 import { useEffect, useState } from "react";
-import { Link, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
+import Collection from "./pages/Collection.jsx";
+import HomePage from "./pages/HomePage.jsx";
 
 import "./App.css";
-import collection from "./pages/collection";
 
 function App() {
   return (
-    <>
-      <h1>DnD Combat Tracker to Be</h1>
-    </>
+    <BrowserRouter>
+      <>
+        <Link to="/collection">
+          <button>collection</button>
+        </Link>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/collection" element={<Collection />} />
+        </Routes>
+      </>
+    </BrowserRouter>
   );
 }
 
