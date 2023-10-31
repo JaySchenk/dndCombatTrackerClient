@@ -36,12 +36,14 @@ function Collection() {
             <th style={{ border: "1px solid #000", padding: "10px" }}>
               hitpoints
             </th>
+            <th style={{ border: "1px solid #000", padding: "10px" }}>AC</th>
             <th style={{ border: "1px solid #000", padding: "10px" }}>
-              allighment
+              allighment{" "}
             </th>
             <th style={{ border: "1px solid #000", padding: "10px" }}>
               Legendary Actions?
             </th>
+            <th style={{ border: "1px solid #000", padding: "10px" }}>size</th>
           </tr>
         </thead>
         <tbody>
@@ -58,13 +60,19 @@ function Collection() {
                   {monster.challenge_rating}
                 </td>
                 <td style={{ border: "1px solid #000", padding: "10px" }}>
-                  {monster.hit_points}
+                  {monster.hit_points} hp
+                </td>
+                <td style={{ border: "1px solid #000", padding: "10px" }}>
+                  {monster.armor_class} ac
                 </td>
                 <td style={{ border: "1px solid #000", padding: "10px" }}>
                   {monster.alignment}
                 </td>
                 <td style={{ border: "1px solid #000", padding: "10px" }}>
                   {monster.legendary_actions.length > 0 ? "yes" : "no"}
+                </td>
+                <td style={{ border: "1px solid #000", padding: "10px" }}>
+                  {monster.size}
                 </td>
               </tr>
             ))}
