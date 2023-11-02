@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 function Collection() {
   const [monster, setMonster] = useState();
   const [loading, setLoading] = useState(true);
+  const [enviroment, setEnviroment] = useState();
 
   useEffect(() => {
     fetch(`${import.meta.env.VITE_API_URL}/api/monsters`)
@@ -13,9 +14,23 @@ function Collection() {
         return response.json();
       })
       .then((data) => {
-        console.log(data);
         setMonster(data.monsters);
         setLoading(false);
+      })
+      .catch((error) => console.log(error));
+  }, []);
+
+  useEffect(() => {
+    fetch(`${import.meta.env.VITE_API_URL}/api/environments`)
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        return response.json();
+      })
+      .then((data) => {
+        console.log(data);
+        setEnviroment(data);
       })
       .catch((error) => console.log(error));
   }, []);
