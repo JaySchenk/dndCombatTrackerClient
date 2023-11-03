@@ -6,6 +6,7 @@ function Collection() {
   const [loading, setLoading] = useState(true);
   const [enviroment, setEnviroment] = useState();
   const [types, setTypes] = useState();
+  const [alignments, setAlignments] = useState();
 
   // CR slider 0, 1/8 1/4 1/2 1 t/m 30
   // multi select for monster areas
@@ -28,33 +29,23 @@ function Collection() {
   }, []);
 
   useEffect(() => {
-    fetch(`${import.meta.env.VITE_API_URL}/api/filter/environments`)
-      .then((response) => {
+    const fetchData = async (endpoint, setter) => {
+      try {
+        const response = await fetch(`${import.meta.env.VITE_API_URL}/api/filter/${endpoint}`);
         if (!response.ok) {
           throw new Error("Network response was not ok");
         }
-        return response.json();
-      })
-      .then((data) => {
+        const data = await response.json();
         console.log(data);
-        setEnviroment(data);
-      })
-      .catch((error) => console.log(error));
-  }, []);
-
-  useEffect(() => {
-    fetch(`${import.meta.env.VITE_API_URL}/api/filter/types`)
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error("Network response was not ok");
-        }
-        return response.json();
-      })
-      .then((data) => {
-        console.log(data);
-        setTypes(data);
-      })
-      .catch((error) => console.log(error));
+        setter(data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+  
+    fetchData("environments", setEnviroment);
+    fetchData("types", setTypes);
+    fetchData("alignment", setAlignments);
   }, []);
 
   if (loading) {
