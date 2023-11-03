@@ -4,17 +4,17 @@ const HomePage = () => {
   return (
     <div>
       <div>
-        Welcome to GrowTogether, your digital gardening companion that ensures
-        your plants thrive and bloom to their fullest potential. Whether you're
-        a seasoned botanist or just stepping into the world of greenery, our app
-        offers tailored advice, catering to each unique plant in your
-        collection. Gone are the days of wilted leaves and forgotten watering
-        schedules. With GrowTogether, you'll receive timely reminders, ensuring
-        your plants receive the right amount of water, sunlight, and care they
-        deserve. Dive deep into our comprehensive plant care library, and watch
-        as you and your plants grow together, fostering an environment of beauty
-        and tranquility right at your fingertips. Join us, and let's cultivate a
-        greener tomorrow, today.
+        Welcome to Combat Tracker, the essential tool for Dungeon Masters to
+        efficiently monitor and manage intense battles at your gaming table.
+        Whether you're a seasoned storyteller or new to the world of
+        role-playing, our app is tailored to streamline the chaos of combat
+        scenarios. Say goodbye to cluttered notes and frantic dice rolls. With
+        Combat Tracker, you can effortlessly oversee each turn, ensuring your
+        players' actions and the creatures' responses are accurately recorded.
+        Explore our comprehensive resource library, and witness how you can
+        orchestrate thrilling encounters and dramatic twists, fostering an
+        immersive and captivating gaming experience for everyone involved. Join
+        us, and let's craft legendary tales of heroism and adventure together.
       </div>
     </div>
   );

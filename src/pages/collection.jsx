@@ -12,7 +12,7 @@ function Collection() {
   // multi select for monster areas
   // multi select for monster race
   // multi select for alignment
-  
+
   useEffect(() => {
     fetch(`${import.meta.env.VITE_API_URL}/api/monsters`)
       .then((response) => {
@@ -31,7 +31,9 @@ function Collection() {
   useEffect(() => {
     const fetchData = async (endpoint, setter) => {
       try {
-        const response = await fetch(`${import.meta.env.VITE_API_URL}/api/filter/${endpoint}`);
+        const response = await fetch(
+          `${import.meta.env.VITE_API_URL}/api/filter/${endpoint}`
+        );
         if (!response.ok) {
           throw new Error("Network response was not ok");
         }
@@ -42,7 +44,7 @@ function Collection() {
         console.log(error);
       }
     };
-  
+
     fetchData("environments", setEnviroment);
     fetchData("types", setTypes);
     fetchData("alignment", setAlignments);
