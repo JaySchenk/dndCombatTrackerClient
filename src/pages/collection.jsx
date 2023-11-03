@@ -1,10 +1,17 @@
 import { useEffect, useState } from "react";
+import { useFetcher } from "react-router-dom";
 
 function Collection() {
   const [monster, setMonster] = useState();
   const [loading, setLoading] = useState(true);
   const [enviroment, setEnviroment] = useState();
+  const [types, setTypes] = useState();
 
+  // CR slider 0, 1/8 1/4 1/2 1 t/m 30
+  // multi select for monster areas
+  // multi select for monster race
+  // multi select for alignment
+  
   useEffect(() => {
     fetch(`${import.meta.env.VITE_API_URL}/api/monsters`)
       .then((response) => {
@@ -21,7 +28,7 @@ function Collection() {
   }, []);
 
   useEffect(() => {
-    fetch(`${import.meta.env.VITE_API_URL}/api/environments`)
+    fetch(`${import.meta.env.VITE_API_URL}/api/filter/environments`)
       .then((response) => {
         if (!response.ok) {
           throw new Error("Network response was not ok");
@@ -31,6 +38,21 @@ function Collection() {
       .then((data) => {
         console.log(data);
         setEnviroment(data);
+      })
+      .catch((error) => console.log(error));
+  }, []);
+
+  useEffect(() => {
+    fetch(`${import.meta.env.VITE_API_URL}/api/filter/types`)
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        return response.json();
+      })
+      .then((data) => {
+        console.log(data);
+        setTypes(data);
       })
       .catch((error) => console.log(error));
   }, []);
