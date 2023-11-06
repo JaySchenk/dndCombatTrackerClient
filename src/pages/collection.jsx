@@ -43,7 +43,7 @@ function Collection() {
       } catch (error) {
         console.log(error);
       }
-    };
+    };c
 
     fetchData("environments", setEnviroment);
     fetchData("types", setTypes);
