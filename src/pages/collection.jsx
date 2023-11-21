@@ -253,7 +253,7 @@ function Collection() {
                           className="px-3 py-3.5 text-left text-sm font-semibold text-white cursor-pointer"
                           onClick={() => handleHeaderClick("legendary_actions")}
                         >
-                          Legendary Actions?
+                          Legendary Actions
                         </th>
                         <th
                           scope="col"
